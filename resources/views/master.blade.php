@@ -15,10 +15,14 @@
 
     <header>
         <h1>SpinDocs</h1>
+        
+        <!-- Placeholder to use for template for SpinDocs logo
+        
         <img
         src='http://making-the-internet.s3.amazonaws.com/laravel-foobooks-logo@2x.png'
         style='width:300px'
         alt='Foobooks Logo'>
+        -->
     </header>
 
     <section>

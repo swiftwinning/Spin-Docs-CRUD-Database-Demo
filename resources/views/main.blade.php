@@ -6,24 +6,9 @@
 @endsection
 
 @section('content')
-    <h1>Add a new book</h1>
-
-    <form method='POST' action='/books/new'>
-        {{ csrf_field() }}
-
-        <label for='title'>Title</label>
-        <input type='text' name='title' id='title' value='{{ old('title') }}'>
-        <label for='publishedYear'>Published Year</label>
-        <input type='text' name='publishedYear' id='publishedYear' value='{{ old('publishedYear') }}'>
-        <input type='submit' value='Add book'>
-    </form>
-    
-    @if(count($errors) > 0)
-		<ul>
-			@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-			@endforeach
-		</ul>
-	@endif
-
+    <a href="/shops/new" alt="Add a new shop">Add a new shop</a>
+    <a></a>
+    <a></a>
+    <p>Hey all!  Check out this great database of record stores.  Don't see your favorite?
+    Then you can be the first to add your review.</p>
 @endsection

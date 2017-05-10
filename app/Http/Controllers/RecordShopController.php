@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Shop;
+
 class RecordShopController extends Controller
 {
     /*
@@ -31,4 +33,25 @@ class RecordShopController extends Controller
             'id' => $id,
         ]);
     }
+    
+    /*
+    *  GET
+    *  /shops/new
+    */  
+    public function createNewProfile() {
+        return view('newShop');
+    }
+    
+    /*
+    *  GET
+    *  /shops/edit/{id}
+    */  
+    public function editProfile($id) {
+        $shop = Shop::find($id);
+        return view('editShop')->with([
+            'shop' => $shop,
+        ]);
+    }
 }
+
+
