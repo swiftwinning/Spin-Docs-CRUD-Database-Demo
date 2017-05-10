@@ -1,0 +1,29 @@
+{
+    "Armageddon Shop": {
+        "name" : "Armageddon Shop",
+        "address": "12b Eliot Street",
+        "city" : "Cambridge",
+        "state" : "MA",
+        "zip" : "02138",
+        "phone" : "6174921235",
+        "web_link" : "http://www.armageddonshopboston.com/index_boston.php"
+    },
+    "Amoeba Music": {
+        "name" : "Amoeba Music",
+        "address": "1855 Haight St.",
+        "city" : "San Francisco",
+        "state" : "CA",
+        "zip" : "94117",
+        "phone" : "4158311200",
+        "web_link" : "https://www.amoeba.com/"
+    },
+    "Jackpot Records": {
+        "name" : "Jackpot Records",
+        "address": "3574 SE Hawthorne Blvd",
+        "city" : "Portland",
+        "state" : "OR",
+        "zip" : "97214",
+        "phone" : "5032397561",
+        "web_link" : "http://jackpotrecords.com/"
+    }
+}
