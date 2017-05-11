@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+
 use App\Shop;
 
 class RecordShopController extends Controller
@@ -21,7 +23,10 @@ class RecordShopController extends Controller
     *  /shops/
     */  
     public function allShops() {
-        return view('allShops');
+        $shops = Shop::orderBy('name')->get();
+        return view('allShops')->with([
+            'shops' => $shops,
+        ]);;
     }
     
     /*
@@ -43,6 +48,40 @@ class RecordShopController extends Controller
     }
     
     /*
+    *  POST
+    *  /shops/new
+    */  
+    public function saveNewProfile(Request $request) {
+    
+        #  Validate fields of form
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'phone' => 'required',
+            'web_link' => 'required',
+        ]);
+        
+        # Add new shop to database
+        $shop = new Shop();
+        $shop->name = $request->name;
+        $shop->address = $request->address;
+        $shop->city = $request->city;
+        $shop->state = $request->state;
+        $shop->zip = $request->zip;
+        $shop->phone = $request->phone;
+        $shop->web_link = $request->web_link;
+        $shop->save();
+        
+        Session::flash('message', 'The profile '.$request->name.' has been saved.');
+        
+        return redirect('/shops');
+        
+    }
+    
+    /*
     *  GET
     *  /shops/edit/{id}
     */  
@@ -51,6 +90,15 @@ class RecordShopController extends Controller
         return view('editShop')->with([
             'shop' => $shop,
         ]);
+    }
+    
+    /*
+    *  POST
+    *  /shops/edit
+    */  
+    public function saveProfileEdit(Request $request) {
+        
+        
     }
 }
 

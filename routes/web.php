@@ -20,11 +20,17 @@ Route::get('/shops/', 'RecordShopController@allShops');
 # Get route to show a record shop profile
 Route::get('/shops/new', 'RecordShopController@createNewProfile');
 
+# Post route to save the new record shop profile
+Route::post('/shops/new', 'RecordShopController@saveNewProfile');
+
 # Get route to show a record shop profile
 Route::get('/shops/{id?}', 'RecordShopController@profile');
 
 # Get route to show a form to edit an existing record shop profile
-    Route::get('/shops/edit/{id}', 'RecordShopController@editProfile');
+Route::get('/shops/edit/{id}', 'RecordShopController@editProfile');
+
+# Post route to save edits to an existing record shop profile
+Route::post('/shops/edit/', 'RecordShopController@saveProfileEdit');
 
 
 
