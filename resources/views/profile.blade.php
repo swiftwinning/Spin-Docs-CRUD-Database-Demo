@@ -2,21 +2,13 @@
 @extends('master')
 
 @section('title')
-    Shop Profile
+    {{ $shop->name }} Profile
 @endsection
 
 @section('content')
-    <h1>Shop {{ $id }}'s profile</h1>
+    <h1>{{ $shop->name }}</h1>
 
-    <form method='POST' action='/books/new'>
-        {{ csrf_field() }}
-
-        <label for='title'>Title</label>
-        <input type='text' name='title' id='title' value='{{ old('title') }}'>
-        <label for='publishedYear'>Published Year</label>
-        <input type='text' name='publishedYear' id='publishedYear' value='{{ old('publishedYear') }}'>
-        <input type='submit' value='Add book'>
-    </form>
+    <a href="/shops/edit/{{$shop->id}}">Edit {{ $shop->name }} profile</a>
     
     @if(count($errors) > 0)
 		<ul>
