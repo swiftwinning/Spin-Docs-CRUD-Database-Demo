@@ -1,8 +1,8 @@
 [
-    [1, "five stars", "super duper! I love it."],
-    [2, "four stars", "radical! I like it."],
-    [3, "three stars", "powerfully fresh! I can't believe it."],
-    [1, "two stars", "okie dokie! I can take it or leave it."],
-    [2, "one stars", "so so! Not fantastic."],
-    [3, "five stars", "wowie zowie! I adore it."]
+    [1, 5, "super duper! I love it."],
+    [2, 4, "radical! I like it."],
+    [3, 3, "powerfully fresh! I can't believe it."],
+    [1, 2, "okie dokie! I can take it or leave it."],
+    [2, 1, "so so! Not fantastic."],
+    [3, 5, "wowie zowie! I adore it."]
 ]

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Session;
 
 use App\Shop;
+use App\Review;
+use App\Tag;
 
 class RecordShopController extends Controller
 {
@@ -35,8 +37,10 @@ class RecordShopController extends Controller
     */  
     public function profile($id) {
         $shop = Shop::find($id);
+        $reviews = Review::where('shop_id', '=', $id)->latest()->get();
         return view('profile')->with([
             'shop' => $shop,
+            'reviews' => $reviews,
         ]);
     }
     
@@ -74,7 +78,18 @@ class RecordShopController extends Controller
         $shop->zip = $request->zip;
         $shop->phone = $request->phone;
         $shop->web_link = $request->web_link;
+        
         $shop->save();
+        
+        $tags = $request->tags;
+        foreach($tags as $tagName) {
+            $tag = Tag::where('name','LIKE',$tagName)->first();
+            
+            
+
+            # Connect this tag to the shop
+            $shop->tags()->save($tag);
+        }
         
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
         
@@ -127,7 +142,44 @@ class RecordShopController extends Controller
         
     }
     
+    /*
+    *  GET
+    *  /reviews/edit/{id}
+    */  
+    public function createNewReview($id) {
+        $shop = Shop::find($id);
+        
+        return view('newReview')->with([
+            'shop' => $shop,
+        ]);
+    }
     
+    /*
+    *  POST
+    *  /shops/edit
+    */  
+    public function saveNewReview(Request $request) {
+        
+        
+        
+        #  Validate fields of form
+        $this->validate($request, [
+        ]);
+        
+        
+        
+        $review = new Review();
+        
+        $review->stars = $request->stars;
+        $review->text = $request->text;
+        $review->shop_id = $request->shop_id;
+        $review->save();
+        
+        Session::flash('message', 'Your review of '.$request->shop_id.' has been saved.');
+        
+        return redirect('/shops/'.$request->shop_id);
+        
+    }
 }
 
 

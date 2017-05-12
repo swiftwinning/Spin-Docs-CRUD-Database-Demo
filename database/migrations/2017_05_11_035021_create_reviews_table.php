@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
         $table->increments('id');
         $table->timestamps();
 
-        $table->string('stars');
+        $table->integer('stars');
         $table->string('text');
 
     });
