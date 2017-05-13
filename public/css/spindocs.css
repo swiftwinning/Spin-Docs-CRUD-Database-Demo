@@ -5,7 +5,7 @@ body {
 
 header {
     border: 5px solid black;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 15px 15px 0px 0px;
     background-color: white;
     margin: 0.75em 0.75em 0em 0.75em;
     padding: 0.5em 0.5em 0em 0.5em;
@@ -13,6 +13,7 @@ header {
 
 .content {
     border: 5px solid black;
+    border-radius: 0px 0px 15px 15px;
     background-color: white;
     margin: 0.75em 0.75em 0em 0.75em;
     padding: 1em;
@@ -61,4 +62,31 @@ div.links a.active {
 .review a {
     display: inline-block;
     float: right;
+}
+
+footer {
+    margin: 0.75em 0.75em 0em 0.75em;
+    padding: 0.5em 0.5em 0em 0.5em;
+    color: #ccc;
+}
+
+footer a {
+    text-decoration: none;
+   
+}
+
+footer a:link {
+    color: #fff;    
+}
+
+footer a:visited {
+    color: #fff;    
+}
+
+footer a:hover {
+    color: #888;    
+}
+
+footer a:active {
+    color: #888;   
 }

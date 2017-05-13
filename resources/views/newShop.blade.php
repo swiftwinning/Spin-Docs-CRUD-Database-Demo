@@ -43,13 +43,14 @@
         <br/>
         <label for='web_link'>Website</label>
         <input type='text' name='web_link' id='web_link' value='{{ old('web_link') }}'>
+        
         <label for="new">
         <input type="checkbox" name="tags[]" value="New" id="new">New</label>
         <label for="used">
         <input type="checkbox" name="tags[]" value="Used" id="used">Used</label>
         <label for="cds">
         <input type="checkbox" name="tags[]" value="CDs" id="cds">CDs</label>
-        <label for="Tapes">
+        <label for="records">
         <input type="checkbox" name="tags[]" value="Records" id="records">Records</label>
         <label for="tapes">
         <input type="checkbox" name="tags[]" value="Tapes" id="tapes">Tapes</label>

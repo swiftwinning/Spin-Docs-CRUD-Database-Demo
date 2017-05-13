@@ -9,20 +9,16 @@
     <span class="profile-header">{{ $shop->name }}</span>
 
     <a href="/shops/edit/{{$shop->id}}" class="edit-link">Edit {{ $shop->name }} profile</a>
+    <br/>
+    @foreach($shop->tags as $tag)
+        {{ $tag->name }}
+    @endforeach
     <div class="profile-info">
     {{ $shop->address }}<br/>
     {{ $shop->city }}, {{ $shop->state }} {{ $shop->zip }}<br/>
     {{ $shop->phone }}<br/>
     <a href="{{$shop->web_link}}" alt="{{$shop->name}} Website" target="blank">{{$shop->web_link}}</a>
     </div>
-    
-    @if(count($errors) > 0)
-		<ul>
-			@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-			@endforeach
-		</ul>
-	@endif
 	
 	@foreach($reviews as $review)
 	    <div class="review">

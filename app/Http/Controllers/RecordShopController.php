@@ -85,13 +85,15 @@ class RecordShopController extends Controller
         $shop->save();
         
         $tags = $request->tags;
-        foreach($tags as $tagName) {
-            $tag = Tag::where('name','LIKE',$tagName)->first();
-            
-            
+        if($tags){
+			foreach($tags as $tagName) {
+				$tag = Tag::where('name','LIKE',$tagName)->first();
+			
+			
 
-            # Connect this tag to the shop
-            $shop->tags()->save($tag);
+				# Connect this tag to the shop
+				$shop->tags()->save($tag);
+			}
         }
         
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
@@ -141,6 +143,18 @@ class RecordShopController extends Controller
         $shop->web_link = $request->web_link;
         $shop->save();
         
+        $tags = $request->tags;
+        if($tags){
+			foreach($tags as $tagName) {
+				$tag = Tag::where('name','LIKE',$tagName)->first();
+			
+			
+
+				# Connect this tag to the shop
+				$shop->tags()->save($tag);
+			}
+        }
+        
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
         
         return redirect('/shops/'.$shop->id);
@@ -160,7 +174,7 @@ class RecordShopController extends Controller
     
     /*
     *  POST
-    *  /shops/edit
+    *  /reviews/edit
     */  
     public function saveNewReview(Request $request) {
         
