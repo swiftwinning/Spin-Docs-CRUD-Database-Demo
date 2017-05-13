@@ -6,10 +6,10 @@
 @endsection
 
 @section('content')
-    <h1>{{ $shop->name }}</h1>
+    <span class="profile-header">{{ $shop->name }}</span>
 
-    <a href="/shops/edit/{{$shop->id}}">Edit {{ $shop->name }} profile</a>
-    <div>
+    <a href="/shops/edit/{{$shop->id}}" class="edit-link">Edit {{ $shop->name }} profile</a>
+    <div class="profile-info">
     {{ $shop->address }}<br/>
     {{ $shop->city }}, {{ $shop->state }} {{ $shop->zip }}<br/>
     {{ $shop->phone }}<br/>
@@ -34,6 +34,7 @@
 	        @endfor
 	        <br/>
 	        {{ $review->text }}
+	        <a>Delete</a>
 	    </div>
 	@endforeach
 	<a href="/reviews/edit/{{$shop->id}}" alt="Add a review for {{$shop->name}}">Add a review</a>

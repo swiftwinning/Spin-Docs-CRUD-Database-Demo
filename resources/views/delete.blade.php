@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <h1>Delete Shop Profile</h1>
+    <h1>Delete Review</h1>
 
     <form method='POST' action='/books/new'>
         {{ csrf_field() }}

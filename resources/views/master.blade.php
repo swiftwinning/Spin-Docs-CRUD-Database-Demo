@@ -18,18 +18,22 @@
 	@endif
 	
     <header>
-        <img src='/images/record-player.svg' style='width:300px' alt='Record Player Logo'>
-        <h1>SpinDocs</h1>
+        <!-- http://www.flaticon.com/free-icon/record-player_31487#term=record player&page=1&position=38 -->
+        <img src='/images/record-player.svg' style='height:150px' alt='Record Player Icon'>
+        <img src='/images/spindocsLogo.svg' style='height:150px' alt='SpinDocs Logo'>
         <div class="links">
-            <a href="/" alt="SpinDocs home">Home</a>
-			<a href="/shops/" alt="Browse record shops">Browse record shops</a>
-            <a href="/shops/new" alt="Add a new shop">Add a new shop</a>
+            <a href="/" alt="SpinDocs home" 
+                    class="{{(Request::path() == '/') ? 'active' : '' }}">Home</a>
+			<a href="/shops/" alt="Browse record shops" 
+			        class="{{(Request::path() == 'shops') ? 'active' : '' }}">Browse record shops</a>
+            <a href="/shops/new" alt="Add a new shop" 
+			        class="{{(Request::path() == 'shops/new') ? 'active' : '' }}">Add a new shop</a>
         </div>
         
        
     </header>
 
-    <section>
+    <section class="content">
         @yield('content')
     </section>
 
