@@ -22,9 +22,20 @@
         <label for='city'>City</label>
         <input type='text' name='city' id='city' value='{{ old('city', $shop->city) }}'>
         <br/>
+        
+        <label for='state'>State</label>
+        <select name="state">
+            @foreach($states as $state)
+                <option value="{{$state}}">{{$state}}</option>
+            @endforeach
+        </select>
+        
+        <!--
         <label for='state'>State</label>
         <input type='text' name='state' id='state' value='{{ old('state', $shop->state) }}'>
         <br/>
+        -->
+        
         <label for='zip'>Zip</label>
         <input type='text' name='zip' id='zip' value='{{ old('zip', $shop->zip) }}'>
         <br/>

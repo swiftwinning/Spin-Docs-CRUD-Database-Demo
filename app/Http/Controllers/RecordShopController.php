@@ -49,7 +49,10 @@ class RecordShopController extends Controller
     *  /shops/new
     */  
     public function createNewProfile() {
-        return view('newShop');
+        $states = RecordShopController::getStates();
+        return view('newShop')->with([
+            'states' => $states,
+        ]);
     }
     
     /*
@@ -102,9 +105,11 @@ class RecordShopController extends Controller
     *  /shops/edit/{id}
     */  
     public function editProfile($id) {
+        $states = RecordShopController::getStates();
         $shop = Shop::find($id);
         return view('editShop')->with([
             'shop' => $shop,
+            'states' => $states,
         ]);
     }
     
@@ -138,7 +143,7 @@ class RecordShopController extends Controller
         
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
         
-        return redirect('/shops/'.$request->id);
+        return redirect('/shops/'.$shop->id);
         
     }
     
@@ -147,8 +152,7 @@ class RecordShopController extends Controller
     *  /reviews/edit/{id}
     */  
     public function createNewReview($id) {
-        $shop = Shop::find($id);
-        
+        $shop = Shop::find($id);    
         return view('newReview')->with([
             'shop' => $shop,
         ]);
@@ -175,10 +179,18 @@ class RecordShopController extends Controller
         $review->shop_id = $request->shop_id;
         $review->save();
         
-        Session::flash('message', 'Your review of '.$request->shop_id.' has been saved.');
+        Session::flash('message', 'Your review of '.Shop::find($request->shop_id)->name.' has been saved.');
         
         return redirect('/shops/'.$request->shop_id);
         
+    }
+    
+    static function getStates(){
+        return ['-', 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 
+                'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 
+                'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 
+                'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 
+                'WI', 'WV', 'WY'];
     }
 }
 
