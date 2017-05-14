@@ -107,12 +107,17 @@ class RecordShopController extends Controller
     public function editProfile($id) {
         $states = RecordShopController::getStates();
         $shop = Shop::find($id);
+        $tagIndexes = [];
+        foreach($shop->tags as $tag) {
+            $tagIndexes[] = $tag->id;
+        }
         return view('editShop')->with([
             'shop' => $shop,
             'states' => $states,
+            'tagIndexes' => $tagIndexes,
         ]);
     }
-    
+  
     /*
     *  POST
     *  /shops/edit
@@ -143,14 +148,9 @@ class RecordShopController extends Controller
         $shop->web_link = $request->web_link;
         $shop->save();
         
-        $tags = $request->tags;
-        if($tags){
-			foreach($tags as $tagName) {
-				$tag = Tag::where('name','LIKE',$tagName)->first();
-	
-				$shop->tags()->save($tag);
-			}
-        }
+        $tags = ($request->tags) ?: [];
+        $shop->tags()->sync($tags);
+        $shop->save();
         
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
         

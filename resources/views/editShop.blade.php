@@ -12,17 +12,21 @@
         {{ csrf_field() }}
         
         <input type='hidden' name='id' value='{{$shop->id}}'>
-        
         <label for="new">
-        <input type="checkbox" name="tags[]" value="New" id="new">New</label>
+        <input type="checkbox" name="tags[]" value="1" id="new"
+                @if(in_array(1, $tagIndexes)){{"CHECKED"}}@endif>New</label>
         <label for="used">
-        <input type="checkbox" name="tags[]" value="Used" id="used">Used</label>
+        <input type="checkbox" name="tags[]" value="2" id="used"
+                @if(in_array(2, $tagIndexes)){{"CHECKED"}}@endif>Used</label>
         <label for="cds">
-        <input type="checkbox" name="tags[]" value="CDs" id="cds">CDs</label>
+        <input type="checkbox" name="tags[]" value="3" id="cds"
+                @if(in_array(3, $tagIndexes)){{"CHECKED"}}@endif>CDs</label>
         <label for="records">
-        <input type="checkbox" name="tags[]" value="Records" id="records">Records</label>
+        <input type="checkbox" name="tags[]" value="4" id="records"
+                @if(in_array(4, $tagIndexes)){{"CHECKED"}}@endif>Records</label>
         <label for="tapes">
-        <input type="checkbox" name="tags[]" value="Tapes" id="tapes">Tapes</label>
+        <input type="checkbox" name="tags[]" value="5" id="tapes"
+                @if(in_array(5, $tagIndexes)){{"CHECKED"}}@endif>Tapes</label>
         <br/>
 
         <label for='name'>Name</label>

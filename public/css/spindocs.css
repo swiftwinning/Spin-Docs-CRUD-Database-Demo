@@ -11,6 +11,12 @@ header {
     padding: 0.5em 0.5em 0em 0.5em;
 }
 
+.message {
+    margin: 0.75em 0.75em 0em 0.75em;
+    padding: 0.5em 0.5em 0em 0.5em;
+    color: #ccc;
+}
+
 .content {
     border: 5px solid black;
     border-radius: 0px 0px 15px 15px;
