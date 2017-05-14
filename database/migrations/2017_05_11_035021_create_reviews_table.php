@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
         $table->timestamps();
 
         $table->integer('stars');
-        $table->string('text');
+        $table->longText('text');
 
     });
     }

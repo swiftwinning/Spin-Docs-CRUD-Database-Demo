@@ -10,6 +10,18 @@
 
     <form method='POST' action='/shops/new'>
         {{ csrf_field() }}
+        
+        <label for="new">
+        <input type="checkbox" name="tags[]" value="New" id="new">New</label>
+        <label for="used">
+        <input type="checkbox" name="tags[]" value="Used" id="used">Used</label>
+        <label for="cds">
+        <input type="checkbox" name="tags[]" value="CDs" id="cds">CDs</label>
+        <label for="records">
+        <input type="checkbox" name="tags[]" value="Records" id="records">Records</label>
+        <label for="tapes">
+        <input type="checkbox" name="tags[]" value="Tapes" id="tapes">Tapes</label>
+        <br/>
 
         <label for='name'>Name</label>
         <input type='text' name='name' id='name' value='{{ old('name') }}'>
@@ -24,16 +36,9 @@
         <label for='state'>State</label>
         <select name="state">
             @foreach($states as $state)
-                <option value="{{$state}}">{{$state}}</option>
+                <option value="{{$state}}" {{ (old('state') == $state) ? "SELECTED" : ""}}>{{$state}}</option>
             @endforeach
         </select>
-        
-        <!--
-        <label for='state'>State</label>
-        <input type='text' name='state' id='state' value='{{ old('state') }}'>
-        <br/>
-        -->
-        
         
         <label for='zip'>Zip</label>
         <input type='text' name='zip' id='zip' value='{{ old('zip') }}'>
@@ -43,17 +48,8 @@
         <br/>
         <label for='web_link'>Website</label>
         <input type='text' name='web_link' id='web_link' value='{{ old('web_link') }}'>
-        
-        <label for="new">
-        <input type="checkbox" name="tags[]" value="New" id="new">New</label>
-        <label for="used">
-        <input type="checkbox" name="tags[]" value="Used" id="used">Used</label>
-        <label for="cds">
-        <input type="checkbox" name="tags[]" value="CDs" id="cds">CDs</label>
-        <label for="records">
-        <input type="checkbox" name="tags[]" value="Records" id="records">Records</label>
-        <label for="tapes">
-        <input type="checkbox" name="tags[]" value="Tapes" id="tapes">Tapes</label>
+        <br/>
+        *All fields are required
         <br/>
         <input type='submit' value='Add shop'>
     </form>

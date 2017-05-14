@@ -12,6 +12,18 @@
         {{ csrf_field() }}
         
         <input type='hidden' name='id' value='{{$shop->id}}'>
+        
+        <label for="new">
+        <input type="checkbox" name="tags[]" value="New" id="new">New</label>
+        <label for="used">
+        <input type="checkbox" name="tags[]" value="Used" id="used">Used</label>
+        <label for="cds">
+        <input type="checkbox" name="tags[]" value="CDs" id="cds">CDs</label>
+        <label for="records">
+        <input type="checkbox" name="tags[]" value="Records" id="records">Records</label>
+        <label for="tapes">
+        <input type="checkbox" name="tags[]" value="Tapes" id="tapes">Tapes</label>
+        <br/>
 
         <label for='name'>Name</label>
         <input type='text' name='name' id='name' value='{{ old('name', $shop->name) }}'>
@@ -26,15 +38,10 @@
         <label for='state'>State</label>
         <select name="state">
             @foreach($states as $state)
-                <option value="{{$state}}">{{$state}}</option>
+                <option value="{{$state}}" {{ ($shop->state == $state) ? "SELECTED" : ""}}>{{$state}}</option>
             @endforeach
         </select>
-        
-        <!--
-        <label for='state'>State</label>
-        <input type='text' name='state' id='state' value='{{ old('state', $shop->state) }}'>
         <br/>
-        -->
         
         <label for='zip'>Zip</label>
         <input type='text' name='zip' id='zip' value='{{ old('zip', $shop->zip) }}'>
@@ -44,20 +51,13 @@
         <br/>
         <label for='web_link'>Website</label>
         <input type='text' name='web_link' id='web_link' value='{{ old('web_link', $shop->web_link) }}'>
-        
-        <label for="new">
-        <input type="checkbox" name="tags[]" value="New" id="new">New</label>
-        <label for="used">
-        <input type="checkbox" name="tags[]" value="Used" id="used">Used</label>
-        <label for="cds">
-        <input type="checkbox" name="tags[]" value="CDs" id="cds">CDs</label>
-        <label for="records">
-        <input type="checkbox" name="tags[]" value="Records" id="records">Records</label>
-        <label for="tapes">
-        <input type="checkbox" name="tags[]" value="Tapes" id="tapes">Tapes</label>
+        <br/>
+        *All fields are required
         <br/>
         <input type='submit' value='Save changes'>
     </form>
+    <br/>
+	    <a class="delete" href="" alt="">Delete this profile</a>
     
     @if(count($errors) > 0)
 		<ul>

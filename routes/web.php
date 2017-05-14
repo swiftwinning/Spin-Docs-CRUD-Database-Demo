@@ -38,6 +38,12 @@ Route::get('/reviews/edit/{id}', 'RecordShopController@createNewReview');
 # Post route to save a new record shop review
 Route::post('/reviews/edit/', 'RecordShopController@saveNewReview');
 
+# Get route to go to form to delete a profile
+Route::get('/delete/{id}', 'RecordShopController@deleteConfirm')
+
+# Post route to go to form to delete a profile
+Route::post('/delete/', 'RecordShopController@deleteProfile')
+
 
 
 

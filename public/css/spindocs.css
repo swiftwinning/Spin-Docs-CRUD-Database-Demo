@@ -59,9 +59,17 @@ div.links a.active {
     margin-bottom: 0.25em;
 }
 
-.review a {
-    display: inline-block;
-    float: right;
+a.delete {
+    font-size: 0.75em;
+    color: #777;
+}
+
+.reviewButton {
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 1px;
+    background-color: #eee;
+    padding: 0.25em;
 }
 
 footer {
@@ -90,3 +98,4 @@ footer a:hover {
 footer a:active {
     color: #888;   
 }
+

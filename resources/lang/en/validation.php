@@ -101,6 +101,42 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'name' => [
+            'required' => 'Please enter the shop name',
+            'regex' => 'Name must be alphabetical',
+        ],
+        'address' => [
+            'required' => 'Please enter the address',
+            'regex' => 'Address must be alpha-numeric',
+        ],
+        'city' => [
+            'required' => 'Please enter the city or town',
+            'regex' => 'City must be alphabetical',
+        ],
+        'state' => [
+            'min' => 'Please select the state',
+        ],
+        'zip' => [
+            'required' => 'Please enter the 5 digit zip code',
+            'numeric' => 'Please enter zip code as 5 digits',
+            'digits' => 'Please enter zip code as 5 digits',
+        ],
+        'phone' => [
+            'required' => 'Please enter the 10 digit phone number',
+            'numeric' => 'Please enter phone number as 10 digits',
+            'digits' => 'Please enter phone number as 10 digits',
+        ],
+        'web_link' => [
+            'required' => 'Please enter the website',
+            'url' => 'Please use full URL starting with http',
+        ],
+        'stars' => [
+            'required' => 'Choose your rating',
+        ],
+        'text' => [
+            'required' => 'Please type your review',
+            'min' => 'Your review must be more than one letter',
+        ],
     ],
 
     /*
@@ -117,3 +153,4 @@ return [
     'attributes' => [],
 
 ];
+

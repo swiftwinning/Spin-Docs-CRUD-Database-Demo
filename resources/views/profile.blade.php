@@ -30,9 +30,9 @@
 	        @endfor
 	        <br/>
 	        {{ $review->text }}
-	        <a>Delete</a>
 	    </div>
 	@endforeach
-	<a href="/reviews/edit/{{$shop->id}}" alt="Add a review for {{$shop->name}}">Add a review</a>
+	<a href="/reviews/edit/{{$shop->id}}" alt="Add a review for {{$shop->name}}"
+	        class="reviewButton">Add a review</a>
 
 @endsection

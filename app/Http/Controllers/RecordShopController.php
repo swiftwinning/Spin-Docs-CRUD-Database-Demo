@@ -62,14 +62,16 @@ class RecordShopController extends Controller
     public function saveNewProfile(Request $request) {
     
         #  Validate fields of form
+        #  Name and city may contain letters, spaces, and the characters .'-
+        #  Address may contain letters, numbers, spaces, and the characters .'-
         $this->validate($request, [
-            'name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
-            'phone' => 'required',
-            'web_link' => 'required',
+            'name' => "required|regex:/^[A-Za-z .'-]+$/u",
+            'address' => "required|regex:/^[A-Za-z0-9 .#'-]+$/u",
+            'city' => "required|regex:/^[A-Za-z .'-]+$/u",
+            'state' => 'required|min:2',
+            'zip' => 'required|numeric|digits:5',
+            'phone' => 'required|numeric|digits:10',
+            'web_link' => 'required|url',
         ]);
         
         # Add new shop to database
@@ -88,9 +90,6 @@ class RecordShopController extends Controller
         if($tags){
 			foreach($tags as $tagName) {
 				$tag = Tag::where('name','LIKE',$tagName)->first();
-			
-			
-
 				# Connect this tag to the shop
 				$shop->tags()->save($tag);
 			}
@@ -98,8 +97,7 @@ class RecordShopController extends Controller
         
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
         
-        return redirect('/shops');
-        
+        return redirect('/shops');    
     }
     
     /*
@@ -121,14 +119,16 @@ class RecordShopController extends Controller
     */  
     public function saveProfileEdit(Request $request) {
         #  Validate fields of form
+        #  Name and city may contain letters, spaces, and the characters .'-
+        #  Address may contain letters, numbers, spaces, and the characters .'-
         $this->validate($request, [
-            'name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
-            'phone' => 'required',
-            'web_link' => 'required',
+            'name' => "required|regex:/^[A-Za-z .'-]+$/u",
+            'address' => "required|regex:/^[A-Za-z0-9 .#'-]+$/u",
+            'city' => "required|regex:/^[A-Za-z .'-]+$/u",
+            'state' => 'required|min:2',
+            'zip' => 'required|numeric|digits:5',
+            'phone' => 'required|numeric|digits:10',
+            'web_link' => 'required|url',
         ]);
         
         $shop = Shop::find($request->id);
@@ -147,10 +147,7 @@ class RecordShopController extends Controller
         if($tags){
 			foreach($tags as $tagName) {
 				$tag = Tag::where('name','LIKE',$tagName)->first();
-			
-			
-
-				# Connect this tag to the shop
+	
 				$shop->tags()->save($tag);
 			}
         }
@@ -158,7 +155,6 @@ class RecordShopController extends Controller
         Session::flash('message', 'The profile '.$request->name.' has been saved.');
         
         return redirect('/shops/'.$shop->id);
-        
     }
     
     /*
@@ -177,15 +173,13 @@ class RecordShopController extends Controller
     *  /reviews/edit
     */  
     public function saveNewReview(Request $request) {
-        
-        
-        
+   
         #  Validate fields of form
         $this->validate($request, [
+            'stars' => 'required',
+            'text' => 'required|min:2',
         ]);
-        
-        
-        
+            
         $review = new Review();
         
         $review->stars = $request->stars;
@@ -195,8 +189,7 @@ class RecordShopController extends Controller
         
         Session::flash('message', 'Your review of '.Shop::find($request->shop_id)->name.' has been saved.');
         
-        return redirect('/shops/'.$request->shop_id);
-        
+        return redirect('/shops/'.$request->shop_id);   
     }
     
     static function getStates(){
