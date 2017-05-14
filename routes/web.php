@@ -39,10 +39,10 @@ Route::get('/reviews/edit/{id}', 'RecordShopController@createNewReview');
 Route::post('/reviews/edit/', 'RecordShopController@saveNewReview');
 
 # Get route to go to form to delete a profile
-Route::get('/delete/{id}', 'RecordShopController@deleteConfirm')
+Route::get('/delete/{id}', 'RecordShopController@deleteConfirm');
 
 # Post route to go to form to delete a profile
-Route::post('/delete/', 'RecordShopController@deleteProfile')
+Route::post('/delete/', 'RecordShopController@deleteProfile');
 
 
 
