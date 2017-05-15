@@ -13,7 +13,7 @@
     <form method='POST' action='/delete'>
         {{ csrf_field() }}
         <input type='hidden' name='id' value='{{$shop->id}}'>
-        <input type='submit' value='Delete {{ $shop->name }}'>
+        <input type='submit' class="button" value='Delete {{ $shop->name }}'>
     </form>
     <a href="/shops/{{$shop->id}}">Back</a>
 

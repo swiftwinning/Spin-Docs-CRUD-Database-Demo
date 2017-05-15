@@ -40,7 +40,7 @@
         <br/>
         *All fields required
         <br/>
-        <input type="submit" value="Submit review">
+        <input type="submit" class="button" value="Submit review">
     </form>
     
     @if(count($errors) > 0)

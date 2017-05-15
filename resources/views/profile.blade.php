@@ -31,6 +31,6 @@
 	        {{ $review->text }}
 	    </div>
 	@endforeach
-	<a href="/reviews/edit/{{$shop->id}}" class="reviewButton">Add a review</a>
+	<a href="/reviews/edit/{{$shop->id}}" class="button">Add a review</a>
 
 @endsection

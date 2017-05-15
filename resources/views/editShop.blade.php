@@ -39,8 +39,8 @@
         <input type='text' name='city' id='city' value='{{ old('city', $shop->city) }}'>
         <br/>
         
-        <label for='state'>State</label>
-        <select name="state" id="state">
+        <label>State</label>
+        <select name="state">
             @foreach($states as $state)
                 <option value="{{$state}}" {{ ($shop->state == $state) ? "SELECTED" : ""}}>{{$state}}</option>
             @endforeach
@@ -58,7 +58,7 @@
         <br/>
         *All fields are required
         <br/>
-        <input type='submit' value='Save changes'>
+        <input type='submit' class="button" value='Save changes'>
     </form>
     <br/>
 	    <a class="delete" href="/delete/{{$shop->id}}">Delete this profile</a>

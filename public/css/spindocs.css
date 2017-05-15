@@ -66,12 +66,13 @@ a.delete {
     color: #777;
 }
 
-.reviewButton {
+.button {
     text-decoration: none;
     border: 1px solid black;
     border-radius: 1px;
     background-color: #eee;
     padding: 0.25em;
+    font-size: 1em;
 }
 
 footer {

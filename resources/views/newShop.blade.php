@@ -51,7 +51,7 @@
         <br/>
         *All fields are required
         <br/>
-        <input type='submit' value='Add shop'>
+        <input type='submit' class="button" value='Add shop'>
     </form>
     
     @if(count($errors) > 0)
