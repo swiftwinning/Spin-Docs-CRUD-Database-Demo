@@ -208,15 +208,15 @@ class RecordShopController extends Controller
     *  /delete
     */  
     public function deleteProfile(Request $request) {
-   
-        $shop = Shop::find($request->id);
         
+        $shop = Shop::find($request->id);
+        #  Remove links to tags and reviews before deleting
         $shop->tags()->detach();
         $reviews = Review::where('shop_id', '=', $request->id)->get();
         foreach($reviews as $review){
             $review->delete();
         }
-        
+        #  Flash message to session to get name before it is deleted
         Session::flash('message', Shop::find($request->id)->name.' has been deleted.');
         
         $shop->delete();

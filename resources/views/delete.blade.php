@@ -15,5 +15,6 @@
         <input type='hidden' name='id' value='{{$shop->id}}'>
         <input type='submit' value='Delete {{ $shop->name }}'>
     </form>
+    <a href="/shops/{{$shop->id}}">Back</a>
 
 @endsection

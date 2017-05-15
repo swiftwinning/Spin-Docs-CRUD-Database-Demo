@@ -6,8 +6,9 @@
 @endsection
 
 @section('content')
+    <h1>Browse Shops</h1>
     @foreach($shops as $shop)
-        <a href="/shops/{{ $shop->id }}" alt="{{ $shop->name }} Profile">{{ $shop->name }}</a>
+        <a href="/shops/{{ $shop->id }}">{{ $shop->name }}</a>
         <br/>
     @endforeach
 

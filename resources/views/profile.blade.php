@@ -17,7 +17,7 @@
     {{ $shop->address }}<br/>
     {{ $shop->city }}, {{ $shop->state }} {{ $shop->zip }}<br/>
     {{ $shop->phone }}<br/>
-    <a href="{{$shop->web_link}}" alt="{{$shop->name}} Website" target="blank">{{$shop->web_link}}</a>
+    <a href="{{$shop->web_link}}" target="blank">{{$shop->web_link}}</a>
     </div>
 	
 	@foreach($reviews as $review)
@@ -32,7 +32,6 @@
 	        {{ $review->text }}
 	    </div>
 	@endforeach
-	<a href="/reviews/edit/{{$shop->id}}" alt="Add a review for {{$shop->name}}"
-	        class="reviewButton">Add a review</a>
+	<a href="/reviews/edit/{{$shop->id}}" class="reviewButton">Add a review</a>
 
 @endsection

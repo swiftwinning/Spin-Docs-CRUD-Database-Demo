@@ -19,10 +19,6 @@
 	
     <header>
         <!-- http://www.flaticon.com/free-icon/record-player_31487#term=record player&page=1&position=38 -->
-        <!--
-        <img src='/images/record-player.svg' style='height:150px' alt='Record Player Icon'>
-        <img src='/images/spindocsLogo.svg' style='height:150px' alt='SpinDocs Logo'>
-        -->
         <img src='/images/spindocsIconLogo.svg' style='height:150px' alt='SpinDocs Logo'>
         <div class="links">
             <a href="/" alt="SpinDocs home" 
