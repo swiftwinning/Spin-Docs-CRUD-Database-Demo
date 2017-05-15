@@ -40,7 +40,7 @@
         <br/>
         
         <label for='state'>State</label>
-        <select name="state">
+        <select name="state" id="state">
             @foreach($states as $state)
                 <option value="{{$state}}" {{ ($shop->state == $state) ? "SELECTED" : ""}}>{{$state}}</option>
             @endforeach

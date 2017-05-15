@@ -6,13 +6,12 @@
 @endsection
 
 @section('content')
-    <span class="profile-header">{{ $shop->name }}</span>
-    
-    <a href="/shops/edit/{{$shop->id}}" class="edit-link">Edit {{ $shop->name }} profile</a>
-    <br/>
+    <h1>{{ $shop->name }}</h1>
     @foreach($shop->tags as $tag)
         {{ $tag->name }}
     @endforeach
+    <br/>
+    <a href="/shops/edit/{{$shop->id}}" class="edit-link">Edit {{ $shop->name }} profile</a>
     <div class="profile-info">
     {{ $shop->address }}<br/>
     {{ $shop->city }}, {{ $shop->state }} {{ $shop->zip }}<br/>

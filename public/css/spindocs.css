@@ -43,10 +43,6 @@ div.links a.active {
     border-bottom: 0px;
 }
 
-.profile-header {
-    font-size: 1.5em;
-}
-
 .edit-link {
     font-size: 0.85em;
     color: #0cc;
@@ -54,7 +50,7 @@ div.links a.active {
 }
 
 .profile-info {
-    padding: 1em;
+    padding: 1em 0em 1em 0em;
 }
 
 .review {

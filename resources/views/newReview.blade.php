@@ -35,8 +35,8 @@
                 &#9733;&#9733;&#9733;&#9733;&#9733;</label><br/>
         
         <label for="text">Your review<br/>
-        <textarea name="text" id="text" value="{{ old('text') }}" 
-                rows="5" cols="60" autofocus>{{ old('text') }}</textarea></label>
+        <textarea name="text" id="text" rows="5" cols="60" 
+                autofocus>{{ old('text') }}</textarea></label>
         <br/>
         *All fields required
         <br/>
