@@ -6,24 +6,14 @@
 @endsection
 
 @section('content')
-    <h1>Delete Review</h1>
+    <h1>Delete {{ $shop->name }} Profile</h1>
 
-    <form method='POST' action='/books/new'>
-        {{ csrf_field() }}
-
-        <label for='title'>Title</label>
-        <input type='text' name='title' id='title' value='{{ old('title') }}'>
-        <label for='publishedYear'>Published Year</label>
-        <input type='text' name='publishedYear' id='publishedYear' value='{{ old('publishedYear') }}'>
-        <input type='submit' value='Add book'>
-    </form>
+    <p>Are you sure you want to delete {{ $shop->name }} permanently?</p>
     
-    @if(count($errors) > 0)
-		<ul>
-			@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-			@endforeach
-		</ul>
-	@endif
+    <form method='POST' action='/delete'>
+        {{ csrf_field() }}
+        <input type='hidden' name='id' value='{{$shop->id}}'>
+        <input type='submit' value='Delete {{ $shop->name }}'>
+    </form>
 
 @endsection

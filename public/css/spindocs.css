@@ -48,8 +48,8 @@ div.links a.active {
 }
 
 .edit-link {
-    font-size: 1em;
-    color: #555;
+    font-size: 0.85em;
+    color: #0cc;
     text-decoration: none;
 }
 

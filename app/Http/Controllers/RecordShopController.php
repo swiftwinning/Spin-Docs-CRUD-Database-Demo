@@ -192,6 +192,38 @@ class RecordShopController extends Controller
         return redirect('/shops/'.$request->shop_id);   
     }
     
+    /*
+    *  GET
+    *  /delete/{id}
+    */  
+    public function deleteConfirm($id) {
+        $shop = Shop::find($id);    
+        return view('delete')->with([
+            'shop' => $shop,
+        ]);
+    }
+    
+    /*
+    *  POST
+    *  /delete
+    */  
+    public function deleteProfile(Request $request) {
+   
+        $shop = Shop::find($request->id);
+        
+        $shop->tags()->detach();
+        $reviews = Review::where('shop_id', '=', $request->id)->get();
+        foreach($reviews as $review){
+            $review->delete();
+        }
+        
+        Session::flash('message', Shop::find($request->id)->name.' has been deleted.');
+        
+        $shop->delete();
+    
+        return redirect('/shops/');   
+    }
+    
     static function getStates(){
         return ['-', 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 
                 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 

@@ -7,7 +7,7 @@
 
 @section('content')
     <span class="profile-header">{{ $shop->name }}</span>
-
+    
     <a href="/shops/edit/{{$shop->id}}" class="edit-link">Edit {{ $shop->name }} profile</a>
     <br/>
     @foreach($shop->tags as $tag)

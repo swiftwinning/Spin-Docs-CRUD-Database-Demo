@@ -61,7 +61,7 @@
         <input type='submit' value='Save changes'>
     </form>
     <br/>
-	    <a class="delete" href="" alt="">Delete this profile</a>
+	    <a class="delete" href="/delete/{{$shop->id}}" alt="">Delete this profile</a>
     
     @if(count($errors) > 0)
 		<ul>
