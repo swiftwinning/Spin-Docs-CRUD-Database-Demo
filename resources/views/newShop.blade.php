@@ -33,7 +33,7 @@
         <input type='text' name='city' id='city' value='{{ old('city') }}'>
         <br/>
         
-        <label for='state'>State</label>
+        <label>State</label>
         <select name="state">
             @foreach($states as $state)
                 <option value="{{$state}}" {{ (old('state') == $state) ? "SELECTED" : ""}}>{{$state}}</option>
