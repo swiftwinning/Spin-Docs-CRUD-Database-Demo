@@ -15,6 +15,6 @@
         <input type='hidden' name='id' value='{{$shop->id}}'>
         <input type='submit' class="button" value='Delete {{ $shop->name }}'>
     </form>
-    <a href="/shops/{{$shop->id}}">Back</a>
+    <a href="/shops/{{$shop->id}}">Go Back</a>
 
 @endsection

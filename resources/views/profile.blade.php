@@ -15,7 +15,7 @@
     <div class="profile-info">
     {{ $shop->address }}<br/>
     {{ $shop->city }}, {{ $shop->state }} {{ $shop->zip }}<br/>
-    {{ $shop->phone }}<br/>
+    {{ $formattedPhone }}<br/>
     <a href="{{$shop->web_link}}" target="blank">{{$shop->web_link}}</a>
     </div>
 	
